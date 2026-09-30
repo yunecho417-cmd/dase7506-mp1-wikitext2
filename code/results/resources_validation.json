@@ -1,0 +1,103 @@
+{
+  "protocol": "7506-mp1-wt2-v2",
+  "method": "fresh process per repetition; median time; maximum peak RSS",
+  "limits": {
+    "time_vs_baseline": 5.0,
+    "peak_rss_gib": 4.0,
+    "asset_mib": 64.0
+  },
+  "baseline": {
+    "checkpoint": "runs/R0_baseline/checkpoint.pt",
+    "split": "validation",
+    "threads": 4,
+    "precision": "fp32",
+    "repetitions": 3,
+    "bpb": 2.0710874333793914,
+    "token_ppl": 79.5288986929134,
+    "scoring_seconds_median": 3.7028050829831045,
+    "scoring_seconds_min": 3.6932346250105184,
+    "scoring_seconds_max": 3.729821415996412,
+    "peak_rss_gib_max": 2.008544921875,
+    "asset_mib": 4.1683244705200195,
+    "observations": [
+      {
+        "bpb": 2.0710874333793914,
+        "token_ppl": 79.5288986929134,
+        "nll_nats": 1648042.5895596934,
+        "targets": 376599,
+        "utf8_bytes": 1148007,
+        "seconds": 3.6932346250105184,
+        "peak_rss_gib": 2.008544921875
+      },
+      {
+        "bpb": 2.0710874333793914,
+        "token_ppl": 79.5288986929134,
+        "nll_nats": 1648042.5895596934,
+        "targets": 376599,
+        "utf8_bytes": 1148007,
+        "seconds": 3.7028050829831045,
+        "peak_rss_gib": 1.846771240234375
+      },
+      {
+        "bpb": 2.0710874333793914,
+        "token_ppl": 79.5288986929134,
+        "nll_nats": 1648042.5895596934,
+        "targets": 376599,
+        "utf8_bytes": 1148007,
+        "seconds": 3.729821415996412,
+        "peak_rss_gib": 1.8480682373046875
+      }
+    ]
+  },
+  "models": [
+    {
+      "checkpoint": "runs/a_e8_lr1e3/checkpoint.pt",
+      "split": "validation",
+      "threads": 4,
+      "precision": "fp32",
+      "repetitions": 3,
+      "bpb": 1.6224409131695814,
+      "token_ppl": 30.819551331833768,
+      "scoring_seconds_median": 10.66499954200117,
+      "scoring_seconds_min": 10.587955625000177,
+      "scoring_seconds_max": 10.701134749979246,
+      "peak_rss_gib_max": 1.93841552734375,
+      "asset_mib": 40.34532642364502,
+      "observations": [
+        {
+          "bpb": 1.6224409131695814,
+          "token_ppl": 30.819551331833768,
+          "nll_nats": 1291037.5877201231,
+          "targets": 376599,
+          "utf8_bytes": 1148007,
+          "seconds": 10.587955625000177,
+          "peak_rss_gib": 1.9373931884765625
+        },
+        {
+          "bpb": 1.6224409131695814,
+          "token_ppl": 30.819551331833768,
+          "nll_nats": 1291037.5877201231,
+          "targets": 376599,
+          "utf8_bytes": 1148007,
+          "seconds": 10.66499954200117,
+          "peak_rss_gib": 1.93792724609375
+        },
+        {
+          "bpb": 1.6224409131695814,
+          "token_ppl": 30.819551331833768,
+          "nll_nats": 1291037.5877201231,
+          "targets": 376599,
+          "utf8_bytes": 1148007,
+          "seconds": 10.701134749979246,
+          "peak_rss_gib": 1.93841552734375
+        }
+      ],
+      "time_vs_baseline": 2.8802487041551443,
+      "within_limits": {
+        "time": true,
+        "memory": true,
+        "assets": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "step": 1200,
+    "processed_targets": 9830400,
+    "bpb": 1.6595677729162535,
+    "token_ppl": 33.334628848898596,
+    "nll_nats": 1320580.833984375,
+    "validation_targets": 376599
+  },
+  {
+    "step": 2400,
+    "processed_targets": 19660800,
+    "bpb": 1.5880950347198186,
+    "token_ppl": 28.6621626513071,
+    "nll_nats": 1263707.2734375,
+    "validation_targets": 376599
+  },
+  {
+    "step": 3529,
+    "processed_targets": 28909568,
+    "bpb": 1.6081540767485925,
+    "token_ppl": 29.903089082287384,
+    "nll_nats": 1279669.01171875,
+    "validation_targets": 376599
+  }
+]

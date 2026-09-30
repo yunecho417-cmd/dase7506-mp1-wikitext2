@@ -1,0 +1,83 @@
+{
+  "protocol": "7506-mp1-wt2-v2",
+  "run_dir": "runs/smoke_test_20260926",
+  "args": {
+    "implementation": "student",
+    "config": "configs/ours_a_rope.json",
+    "run_dir": "runs/smoke_test_20260926",
+    "device": "mps",
+    "precision": "bf16",
+    "threads": 4,
+    "seed": 17,
+    "batch_size": 32,
+    "epochs": 8.0,
+    "targets": 400000,
+    "lr": 0.001,
+    "wd": 0.1,
+    "warmup_frac": 0.03,
+    "baseline_warmup_steps": 100,
+    "min_lr_frac": 0.0,
+    "schedule": "cosine",
+    "sampling": "without-replacement",
+    "beta2": 0.95,
+    "clip": 1.0,
+    "label_smoothing": 0.0,
+    "ema": 0.0,
+    "ema_start_frac": 0.8,
+    "mtp_k": 0,
+    "mtp_weight": 0.15,
+    "evals": 0,
+    "eval_at_targets": "",
+    "select_best_validation": false,
+    "log_every": 25
+  },
+  "config": {
+    "vocab": 2048,
+    "context": 256,
+    "width": 320,
+    "heads": 4,
+    "depth": 8,
+    "norm": "rms",
+    "ffn": "swiglu",
+    "ffn_mult": 2.667,
+    "pos": "rope",
+    "tie": 1,
+    "dropout": 0.0
+  },
+  "seed": 17,
+  "steps": 49,
+  "parameters": 10488640,
+  "asset_mib": 40.03252124786377,
+  "processed_targets": 401408,
+  "checkpoint_processed_targets": 401408,
+  "selected_step": 49,
+  "train_seconds": 15.615686042001471,
+  "validation_seconds": 0.0,
+  "validation": {
+    "bpb": 3.057782433431188,
+    "token_ppl": 639.6783118356655,
+    "nll_nats": 2433193.11328125,
+    "validation_targets": 376599
+  },
+  "used_averaged_weights": false,
+  "averaging_comparison": [],
+  "history": [
+    {
+      "step": 25,
+      "lr": 0.0005327015646150716,
+      "loss": 6.566440582275391,
+      "seconds": 8.21121762500843
+    },
+    {
+      "step": 49,
+      "lr": 1.0705383806982606e-06,
+      "loss": 6.498325824737549,
+      "seconds": 15.615641209005844
+    }
+  ],
+  "curve": [],
+  "checkpoint_sha256": "6f8cad48f3acd6d779b2a06a2a7d0ac943b3f5e90bc8d0a9a7848776150b3e7f",
+  "implementation_sha256": "399ab947a7c9f74cef024a6d601f82914e2dd79c5d16a2c74d96c20ebeabf5c0",
+  "torch_version": "2.7.1",
+  "process_seconds": 26.241819333983585
+}

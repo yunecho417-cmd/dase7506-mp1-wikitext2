@@ -1,0 +1,139 @@
+{
+  "protocol": "7506-mp1-wt2-v2",
+  "method": "fresh process per repetition; median time; maximum peak RSS",
+  "limits": {
+    "time_vs_baseline": 5.0,
+    "peak_rss_gib": 4.0,
+    "asset_mib": 64.0
+  },
+  "baseline": {
+    "checkpoint": "runs/R0_baseline/checkpoint.pt",
+    "split": "test",
+    "threads": 4,
+    "precision": "fp32",
+    "repetitions": 5,
+    "bpb": 2.1012651958438786,
+    "token_ppl": 80.84792291172079,
+    "scoring_seconds_median": 7.97711087501375,
+    "scoring_seconds_min": 7.897439084015787,
+    "scoring_seconds_max": 8.014841500029434,
+    "peak_rss_gib_max": 1.8719482421875,
+    "asset_mib": 4.1683244705200195,
+    "observations": [
+      {
+        "bpb": 2.1012651958438786,
+        "token_ppl": 80.84792291172079,
+        "nll_nats": 1881798.9058900392,
+        "targets": 428405,
+        "utf8_bytes": 1292013,
+        "seconds": 8.01106341695413,
+        "peak_rss_gib": 1.860137939453125
+      },
+      {
+        "bpb": 2.1012651958438786,
+        "token_ppl": 80.84792291172079,
+        "nll_nats": 1881798.9058900392,
+        "targets": 428405,
+        "utf8_bytes": 1292013,
+        "seconds": 8.014841500029434,
+        "peak_rss_gib": 1.8719482421875
+      },
+      {
+        "bpb": 2.1012651958438786,
+        "token_ppl": 80.84792291172079,
+        "nll_nats": 1881798.9058900392,
+        "targets": 428405,
+        "utf8_bytes": 1292013,
+        "seconds": 7.97711087501375,
+        "peak_rss_gib": 1.8602447509765625
+      },
+      {
+        "bpb": 2.1012651958438786,
+        "token_ppl": 80.84792291172079,
+        "nll_nats": 1881798.9058900392,
+        "targets": 428405,
+        "utf8_bytes": 1292013,
+        "seconds": 7.962140541989356,
+        "peak_rss_gib": 1.86297607421875
+      },
+      {
+        "bpb": 2.1012651958438786,
+        "token_ppl": 80.84792291172079,
+        "nll_nats": 1881798.9058900392,
+        "targets": 428405,
+        "utf8_bytes": 1292013,
+        "seconds": 7.897439084015787,
+        "peak_rss_gib": 1.8607940673828125
+      }
+    ]
+  },
+  "models": [
+    {
+      "checkpoint": "runs/2026-09-26_phase8/p8_bs4_lr1500/checkpoint_calibrated.pt",
+      "split": "test",
+      "threads": 4,
+      "precision": "fp32",
+      "repetitions": 5,
+      "bpb": 1.5713485149197057,
+      "token_ppl": 26.703926017643916,
+      "scoring_seconds_median": 25.419156457995996,
+      "scoring_seconds_min": 24.576121999998577,
+      "scoring_seconds_max": 25.686017416999675,
+      "peak_rss_gib_max": 1.940704345703125,
+      "asset_mib": 40.03386402130127,
+      "observations": [
+        {
+          "bpb": 1.5713485149197057,
+          "token_ppl": 26.703926017643916,
+          "nll_nats": 1407229.2835747036,
+          "targets": 428405,
+          "utf8_bytes": 1292013,
+          "seconds": 25.56742929201573,
+          "peak_rss_gib": 1.9377899169921875
+        },
+        {
+          "bpb": 1.5713485149197057,
+          "token_ppl": 26.703926017643916,
+          "nll_nats": 1407229.2835747036,
+          "targets": 428405,
+          "utf8_bytes": 1292013,
+          "seconds": 25.686017416999675,
+          "peak_rss_gib": 1.9048004150390625
+        },
+        {
+          "bpb": 1.5713485149197057,
+          "token_ppl": 26.703926017643916,
+          "nll_nats": 1407229.2835747036,
+          "targets": 428405,
+          "utf8_bytes": 1292013,
+          "seconds": 25.419156457995996,
+          "peak_rss_gib": 1.940704345703125
+        },
+        {
+          "bpb": 1.5713485149197057,
+          "token_ppl": 26.703926017643916,
+          "nll_nats": 1407229.2835747036,
+          "targets": 428405,
+          "utf8_bytes": 1292013,
+          "seconds": 25.043006374966353,
+          "peak_rss_gib": 1.9381561279296875
+        },
+        {
+          "bpb": 1.5713485149197057,
+          "token_ppl": 26.703926017643916,
+          "nll_nats": 1407229.2835747036,
+          "targets": 428405,
+          "utf8_bytes": 1292013,
+          "seconds": 24.576121999998577,
+          "peak_rss_gib": 1.9050445556640625
+        }
+      ],
+      "time_vs_baseline": 3.1865116150779564,
+      "within_limits": {
+        "time": true,
+        "memory": true,
+        "assets": true
+      }
+    }
+  ]
+}

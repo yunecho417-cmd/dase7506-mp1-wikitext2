@@ -1,0 +1,109 @@
+{
+  "protocol": "7506-mp1-wt2-v2",
+  "run_dir": "runs/capacity_w384d8_s17",
+  "args": {
+    "implementation": "student",
+    "config": "configs/ours_w384d8.json",
+    "run_dir": "runs/capacity_w384d8_s17",
+    "device": "mps",
+    "precision": "bf16",
+    "threads": 4,
+    "seed": 17,
+    "batch_size": 32,
+    "epochs": 8.0,
+    "targets": 9830400,
+    "lr": 0.001,
+    "wd": 0.1,
+    "warmup_frac": 0.03,
+    "baseline_warmup_steps": 100,
+    "min_lr_frac": 0.1,
+    "schedule": "cosine",
+    "sampling": "without-replacement",
+    "beta2": 0.95,
+    "clip": 1.0,
+    "label_smoothing": 0.0,
+    "ema": 0.0,
+    "ema_start_frac": 0.8,
+    "mtp_k": 0,
+    "mtp_weight": 0.15,
+    "evals": 4,
+    "eval_at_targets": "4915200,9830400",
+    "log_every": 300
+  },
+  "config": {
+    "vocab": 2048,
+    "context": 256,
+    "width": 384,
+    "heads": 4,
+    "depth": 8,
+    "norm": "rms",
+    "ffn": "swiglu",
+    "ffn_mult": 2.667,
+    "pos": "learned",
+    "tie": 1,
+    "dropout": 0.0
+  },
+  "seed": 17,
+  "steps": 1200,
+  "parameters": 15047040,
+  "asset_mib": 57.42174243927002,
+  "processed_targets": 9830400,
+  "train_seconds": 459.73100645901286,
+  "validation_seconds": 18.385784832993522,
+  "validation": {
+    "bpb": 1.8291561869209405,
+    "token_ppl": 47.69993015106618,
+    "nll_nats": 1455528.748046875,
+    "validation_targets": 376599
+  },
+  "used_averaged_weights": false,
+  "averaging_comparison": [],
+  "history": [
+    {
+      "step": 300,
+      "lr": 0.0008913135239071435,
+      "loss": 4.874206066131592,
+      "seconds": 107.70821579199401
+    },
+    {
+      "step": 600,
+      "lr": 0.0005730660191723613,
+      "loss": 4.1940155029296875,
+      "seconds": 224.95331145898672
+    },
+    {
+      "step": 900,
+      "lr": 0.00024050483983351683,
+      "loss": 3.8487370014190674,
+      "seconds": 343.8029336670006
+    },
+    {
+      "step": 1200,
+      "lr": 0.00010000163898900153,
+      "loss": 3.617342948913574,
+      "seconds": 459.7309282920032
+    }
+  ],
+  "curve": [
+    {
+      "step": 600,
+      "processed_targets": 4915200,
+      "bpb": 2.05175250348651,
+      "token_ppl": 76.34530748368464,
+      "nll_nats": 1632657.0546875,
+      "validation_targets": 376599
+    },
+    {
+      "step": 1200,
+      "processed_targets": 9830400,
+      "bpb": 1.8291561869209405,
+      "token_ppl": 47.69993015106618,
+      "nll_nats": 1455528.748046875,
+      "validation_targets": 376599
+    }
+  ],
+  "checkpoint_sha256": "fe4fecbefab2acba765225979dd6e49bf956189cc4fa59a18af1e94e85b01c5c",
+  "implementation_sha256": "8419d521d8e61bc9f040f63f2711b6458641e1ee765ee72c8609c9053e40fb9f",
+  "torch_version": "2.7.1",
+  "process_seconds": 491.55562625001767
+}

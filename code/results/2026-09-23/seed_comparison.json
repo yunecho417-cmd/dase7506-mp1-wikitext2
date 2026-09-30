@@ -1,0 +1,32 @@
+{
+  "protocol": "7506-mp1-wt2-v2",
+  "selection_split": "validation",
+  "processed_targets": 28909568,
+  "recipe": {
+    "config": "configs/ours_a.json",
+    "peak_learning_rate": 0.001,
+    "weight_decay": 0.1,
+    "dropout": 0.0,
+    "batch_size": 32,
+    "precision": "bf16",
+    "training_device": "mps"
+  },
+  "runs": [
+    {
+      "seed": 17,
+      "run": "runs/a_e8_lr1e3",
+      "validation_bpb": 1.6224410483804197,
+      "checkpoint_sha256": "ab9ba8b648513530c528ce00345ba1dd8749351c8cf5516dc5ace84f40ad6657",
+      "selected": true
+    },
+    {
+      "seed": 137,
+      "run": "runs/2026-09-23_seed137_final_recipe",
+      "validation_bpb": 1.631858310864108,
+      "checkpoint_sha256": "48cfecb3ed92d969e08168b49ca8c04978a81bbeefb4be3f8ad75ea9e46de8f9",
+      "selected": false
+    }
+  ],
+  "absolute_seed_gap_bpb": 0.0094172624836884,
+  "selection_rule": "Choose the lower complete-validation BPB before any student-model test evaluation."
+}

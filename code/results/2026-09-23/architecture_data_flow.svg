@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="920" viewBox="0 0 1400 920">
+<rect width="1400" height="920" fill="#FFFFFF"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#4B5563"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#111827}.title{font-size:24px;font-weight:700}.subtitle{font-size:12px;fill:#4B5563}.lane{font-size:16px;font-weight:700}.head{font-size:13px;font-weight:700}.body{font-size:11px}.small{font-size:10px;fill:#4B5563}</style>
+<text x="700" y="35" class="title" text-anchor="middle">MP1 architecture and end-to-end data flow</text>
+<text x="700" y="57" class="subtitle" text-anchor="middle">Training data flows left to right; frozen evaluation is isolated below.</text>
+<text x="28" y="105" class="lane" text-anchor="start">1  Data preparation</text>
+<rect x="35" y="125" width="185" height="76" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.3"/>
+<text x="127.5" y="146" class="head" text-anchor="middle">WikiText-2 train</text>
+<text x="127.5" y="165" class="body" text-anchor="middle">raw UTF-8 bytes</text>
+<text x="127.5" y="180" class="body" text-anchor="middle">training split only</text>
+<rect x="245" y="125" width="185" height="76" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.3"/>
+<text x="337.5" y="146" class="head" text-anchor="middle">Integrity check</text>
+<text x="337.5" y="165" class="body" text-anchor="middle">SHA-256 manifest</text>
+<text x="337.5" y="180" class="body" text-anchor="middle">reject changed data</text>
+<rect x="455" y="125" width="185" height="76" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.3"/>
+<text x="547.5" y="146" class="head" text-anchor="middle">BPE tokenizer</text>
+<text x="547.5" y="165" class="body" text-anchor="middle">fixed vocab = 2048</text>
+<text x="547.5" y="180" class="body" text-anchor="middle">fitted on train</text>
+<rect x="665" y="125" width="185" height="76" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.3"/>
+<text x="757.5" y="146" class="head" text-anchor="middle">Token IDs</text>
+<text x="757.5" y="165" class="body" text-anchor="middle">tensor [N]</text>
+<text x="757.5" y="180" class="body" text-anchor="middle">N = 3,613,343</text>
+<rect x="875" y="125" width="185" height="76" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.3"/>
+<text x="967.5" y="146" class="head" text-anchor="middle">BatchLoader</text>
+<text x="967.5" y="165" class="body" text-anchor="middle">32 windows</text>
+<text x="967.5" y="180" class="body" text-anchor="middle">257 tokens each</text>
+<rect x="1085" y="125" width="185" height="76" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.3"/>
+<text x="1177.5" y="146" class="head" text-anchor="middle">Shift inputs</text>
+<text x="1177.5" y="165" class="body" text-anchor="middle">x = tokens[:-1]</text>
+<text x="1177.5" y="180" class="body" text-anchor="middle">y = tokens[1:]</text>
+<line x1="220" y1="163" x2="245" y2="163" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="430" y1="163" x2="455" y2="163" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="640" y1="163" x2="665" y2="163" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="850" y1="163" x2="875" y2="163" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="1060" y1="163" x2="1085" y2="163" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="28" y="250" class="lane" text-anchor="start">2  Student model forward path</text>
+<rect x="35" y="275" width="210" height="86" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.3"/>
+<text x="140.0" y="296" class="head" text-anchor="middle">Input representation</text>
+<text x="140.0" y="315" class="body" text-anchor="middle">token embedding [B,T,320]</text>
+<text x="140.0" y="330" class="body" text-anchor="middle">learned position embedding</text>
+<text x="140.0" y="345" class="body" text-anchor="middle">dropout = 0</text>
+<line x1="245" y1="318" x2="285" y2="318" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="265.0" y="312.0" class="small" text-anchor="middle">hidden states</text>
+<rect x="285" y="255" width="725" height="225" rx="12" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+<text x="647" y="279" class="lane" text-anchor="middle">Transformer block × 8</text>
+<rect x="310" y="305" width="120" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3"/>
+<text x="370.0" y="326" class="head" text-anchor="middle">RMSNorm</text>
+<text x="370.0" y="345" class="body" text-anchor="middle">pre-norm</text>
+<rect x="460" y="305" width="150" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3"/>
+<text x="535.0" y="326" class="head" text-anchor="middle">Q K V</text>
+<text x="535.0" y="345" class="body" text-anchor="middle">4 heads</text>
+<text x="535.0" y="360" class="body" text-anchor="middle">head dim 80</text>
+<rect x="640" y="305" width="170" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3"/>
+<text x="725.0" y="326" class="head" text-anchor="middle">Causal SDPA</text>
+<text x="725.0" y="345" class="body" text-anchor="middle">future masked</text>
+<text x="725.0" y="360" class="body" text-anchor="middle">context 256</text>
+<rect x="840" y="305" width="140" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3"/>
+<text x="910.0" y="326" class="head" text-anchor="middle">Projection</text>
+<text x="910.0" y="345" class="body" text-anchor="middle">bias free</text>
+<text x="910.0" y="360" class="body" text-anchor="middle">+ residual</text>
+<rect x="390" y="395" width="125" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3"/>
+<text x="452.5" y="416" class="head" text-anchor="middle">RMSNorm</text>
+<text x="452.5" y="435" class="body" text-anchor="middle">pre-norm</text>
+<rect x="555" y="395" width="205" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3"/>
+<text x="657.5" y="416" class="head" text-anchor="middle">SwiGLU FFN</text>
+<text x="657.5" y="435" class="body" text-anchor="middle">SiLU(gate) × up</text>
+<text x="657.5" y="450" class="body" text-anchor="middle">hidden ≈ 853</text>
+<rect x="800" y="395" width="150" height="62" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3"/>
+<text x="875.0" y="416" class="head" text-anchor="middle">Down projection</text>
+<text x="875.0" y="435" class="body" text-anchor="middle">bias free</text>
+<text x="875.0" y="450" class="body" text-anchor="middle">+ residual</text>
+<line x1="430" y1="336" x2="460" y2="336" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="610" y1="336" x2="640" y2="336" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="810" y1="336" x2="840" y2="336" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="515" y1="426" x2="555" y2="426" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="760" y1="426" x2="800" y2="426" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="910" y1="367" x2="910" y2="395" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="390" y1="426" x2="335" y2="426" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="335" y1="426" x2="335" y2="337" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="335.0" y="375.5" class="small" text-anchor="middle">next block</text>
+<line x1="1010" y1="367" x2="1045" y2="367" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="1045" y="300" width="150" height="72" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.3"/>
+<text x="1120.0" y="321" class="head" text-anchor="middle">Final RMSNorm</text>
+<text x="1120.0" y="340" class="body" text-anchor="middle">width 320</text>
+<line x1="1195" y1="336" x2="1220" y2="336" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="1220" y="290" width="145" height="92" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.3"/>
+<text x="1292.5" y="311" class="head" text-anchor="middle">Tied LM head</text>
+<text x="1292.5" y="330" class="body" text-anchor="middle">shared token weights</text>
+<text x="1292.5" y="345" class="body" text-anchor="middle">logits [B,T,2048]</text>
+<text x="28" y="515" class="lane" text-anchor="start">3  Optimization and checkpoint production</text>
+<rect x="70" y="545" width="200" height="72" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.3"/>
+<text x="170.0" y="566" class="head" text-anchor="middle">Cross-entropy</text>
+<text x="170.0" y="585" class="body" text-anchor="middle">next-token targets</text>
+<text x="170.0" y="600" class="body" text-anchor="middle">all 256 positions</text>
+<rect x="315" y="545" width="190" height="72" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.3"/>
+<text x="410.0" y="566" class="head" text-anchor="middle">Backpropagation</text>
+<text x="410.0" y="585" class="body" text-anchor="middle">gradient clip = 1.0</text>
+<rect x="550" y="545" width="200" height="72" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.3"/>
+<text x="650.0" y="566" class="head" text-anchor="middle">AdamW update</text>
+<text x="650.0" y="585" class="body" text-anchor="middle">lr = 1e-3</text>
+<text x="650.0" y="600" class="body" text-anchor="middle">weight decay = 0.1</text>
+<rect x="795" y="545" width="220" height="72" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.3"/>
+<text x="905.0" y="566" class="head" text-anchor="middle">Cosine schedule</text>
+<text x="905.0" y="585" class="body" text-anchor="middle">3% warmup</text>
+<text x="905.0" y="600" class="body" text-anchor="middle">minimum lr = 10%</text>
+<rect x="1060" y="545" width="250" height="72" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.3"/>
+<text x="1185.0" y="566" class="head" text-anchor="middle">Checkpoint</text>
+<text x="1185.0" y="585" class="body" text-anchor="middle">10,570,560 parameters</text>
+<text x="1185.0" y="600" class="body" text-anchor="middle">40.345 MiB</text>
+<line x1="270" y1="581" x2="315" y2="581" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="505" y1="581" x2="550" y2="581" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="750" y1="581" x2="795" y2="581" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="1015" y1="581" x2="1060" y2="581" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="1292" y1="382" x2="1292" y2="545" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1292.0" y="457.5" class="small" text-anchor="middle">logits</text>
+<text x="28" y="660" class="lane" text-anchor="start">4  Frozen evaluation and reporting</text>
+<rect x="35" y="690" width="175" height="80" rx="8" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.3"/>
+<text x="122.5" y="711" class="head" text-anchor="middle">Frozen checkpoint</text>
+<text x="122.5" y="730" class="body" text-anchor="middle">seed 17 selected</text>
+<text x="122.5" y="745" class="body" text-anchor="middle">no test tuning</text>
+<rect x="245" y="690" width="190" height="80" rx="8" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.3"/>
+<text x="340.0" y="711" class="head" text-anchor="middle">Independent windows</text>
+<text x="340.0" y="730" class="body" text-anchor="middle">256 targets/window</text>
+<text x="340.0" y="745" class="body" text-anchor="middle">reset every call</text>
+<rect x="470" y="690" width="190" height="80" rx="8" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.3"/>
+<text x="565.0" y="711" class="head" text-anchor="middle">Log probabilities</text>
+<text x="565.0" y="730" class="body" text-anchor="middle">log-softmax FP32</text>
+<text x="565.0" y="745" class="body" text-anchor="middle">shape [B,T,2048]</text>
+<rect x="695" y="690" width="180" height="80" rx="8" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.3"/>
+<text x="785.0" y="711" class="head" text-anchor="middle">Target NLL</text>
+<text x="785.0" y="730" class="body" text-anchor="middle">gather true token</text>
+<text x="785.0" y="745" class="body" text-anchor="middle">mask final short window</text>
+<rect x="910" y="690" width="200" height="80" rx="8" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.3"/>
+<text x="1010.0" y="711" class="head" text-anchor="middle">BPB aggregation</text>
+<text x="1010.0" y="730" class="body" text-anchor="middle">Σ NLL / ln(2)</text>
+<text x="1010.0" y="745" class="body" text-anchor="middle">/ raw UTF-8 bytes</text>
+<rect x="1145" y="690" width="220" height="80" rx="8" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.3"/>
+<text x="1255.0" y="711" class="head" text-anchor="middle">Dated outputs</text>
+<text x="1255.0" y="730" class="body" text-anchor="middle">JSON + window NLL</text>
+<text x="1255.0" y="745" class="body" text-anchor="middle">time, RAM, asset size</text>
+<line x1="210" y1="730" x2="245" y2="730" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="435" y1="730" x2="470" y2="730" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="660" y1="730" x2="695" y2="730" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="875" y1="730" x2="910" y2="730" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="1110" y1="730" x2="1145" y2="730" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="285" y="810" width="250" height="65" rx="8" fill="#FEFCE8" stroke="#FACC15" stroke-width="1.3"/>
+<text x="410.0" y="831" class="head" text-anchor="middle">Validation-only selection</text>
+<text x="410.0" y="850" class="body" text-anchor="middle">compare recipes and seeds</text>
+<text x="410.0" y="865" class="body" text-anchor="middle">choose lowest full-validation BPB</text>
+<rect x="575" y="810" width="220" height="65" rx="8" fill="#FEFCE8" stroke="#FACC15" stroke-width="1.3"/>
+<text x="685.0" y="831" class="head" text-anchor="middle">Freeze manifest</text>
+<text x="685.0" y="850" class="body" text-anchor="middle">checkpoint + code hashes</text>
+<text x="685.0" y="865" class="body" text-anchor="middle">configuration locked</text>
+<rect x="835" y="810" width="255" height="65" rx="8" fill="#FEFCE8" stroke="#FACC15" stroke-width="1.3"/>
+<text x="962.5" y="831" class="head" text-anchor="middle">Test once after freeze</text>
+<text x="962.5" y="850" class="body" text-anchor="middle">428,405 scored targets</text>
+<text x="962.5" y="865" class="body" text-anchor="middle">final test BPB = 1.646152</text>
+<line x1="535" y1="842" x2="575" y2="842" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="795" y1="842" x2="835" y2="842" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="962" y1="810" x2="962" y2="770" stroke="#4B5563" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>

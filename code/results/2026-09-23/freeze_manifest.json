@@ -1,0 +1,31 @@
+{
+  "status": "frozen_before_test",
+  "freeze_date": "2026-09-23",
+  "protocol": "7506-mp1-wt2-v2",
+  "selected_run": "runs/a_e8_lr1e3",
+  "selected_seed": 17,
+  "validation_bpb_cpu_fp32": 1.6224409131695814,
+  "processed_training_targets": 28909568,
+  "parameters": 10570560,
+  "checkpoint": "runs/a_e8_lr1e3/checkpoint.pt",
+  "checkpoint_sha256": "ab9ba8b648513530c528ce00345ba1dd8749351c8cf5516dc5ace84f40ad6657",
+  "implementation": "student.py",
+  "implementation_sha256": "399ab947a7c9f74cef024a6d601f82914e2dd79c5d16a2c74d96c20ebeabf5c0",
+  "evaluator_sha256": "128bcb2dab0be0d427505bddb4671e3ab3a8f78e114be79a689c0f9029af133d",
+  "tokenizer_sha256": "020d1bc6aa4449c4f352b2e03d0e0fb4f39287f15297705e421b1fa7d817262e",
+  "config": {
+    "vocab": 2048,
+    "context": 256,
+    "width": 320,
+    "heads": 4,
+    "depth": 8,
+    "norm": "rms",
+    "ffn": "swiglu",
+    "ffn_mult": 2.667,
+    "pos": "learned",
+    "tie": 1,
+    "dropout": 0.0
+  },
+  "longer_58m_run_decision": "not_run",
+  "longer_58m_run_reason": "The seed-17 curve improved by only about 0.0032 BPB over its final 7.2M targets, while seed 137 finished 0.0094 BPB worse. Doubling training cost was not justified by the observed marginal trend."
+}
