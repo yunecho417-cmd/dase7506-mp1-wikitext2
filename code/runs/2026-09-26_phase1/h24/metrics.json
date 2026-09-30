@@ -1,0 +1,119 @@
+{
+  "protocol": "7506-mp1-wt2-v2",
+  "run_dir": "runs/2026-09-26_phase1/h24",
+  "args": {
+    "implementation": "student",
+    "config": "configs/ours_a_rope.json",
+    "run_dir": "runs/2026-09-26_phase1/h24",
+    "device": "mps",
+    "precision": "bf16",
+    "threads": 4,
+    "seed": 17,
+    "batch_size": 32,
+    "epochs": 8.0,
+    "targets": 24000000,
+    "lr": 0.001,
+    "wd": 0.1,
+    "warmup_frac": 0.03,
+    "baseline_warmup_steps": 100,
+    "min_lr_frac": 0.0,
+    "schedule": "cosine",
+    "sampling": "without-replacement",
+    "beta2": 0.95,
+    "clip": 1.0,
+    "label_smoothing": 0.0,
+    "ema": 0.0,
+    "ema_start_frac": 0.8,
+    "mtp_k": 0,
+    "mtp_weight": 0.15,
+    "evals": 0,
+    "eval_at_targets": "",
+    "select_best_validation": false,
+    "log_every": 400
+  },
+  "config": {
+    "vocab": 2048,
+    "context": 256,
+    "width": 320,
+    "heads": 4,
+    "depth": 8,
+    "norm": "rms",
+    "ffn": "swiglu",
+    "ffn_mult": 2.667,
+    "pos": "rope",
+    "tie": 1,
+    "dropout": 0.0
+  },
+  "seed": 17,
+  "steps": 2930,
+  "parameters": 10488640,
+  "asset_mib": 40.03258228302002,
+  "processed_targets": 24002560,
+  "checkpoint_processed_targets": 24002560,
+  "selected_step": 2930,
+  "train_seconds": 1145.3683819590078,
+  "validation_seconds": 0.0,
+  "validation": {
+    "bpb": 1.6059825170284854,
+    "token_ppl": 29.766195626765516,
+    "nll_nats": 1277941.01953125,
+    "validation_targets": 376599
+  },
+  "used_averaged_weights": false,
+  "averaging_comparison": [],
+  "history": [
+    {
+      "step": 400,
+      "lr": 0.0009705768562494322,
+      "loss": 4.032098770141602,
+      "seconds": 157.81796254200162
+    },
+    {
+      "step": 800,
+      "lr": 0.0008530646957763167,
+      "loss": 3.3892345428466797,
+      "seconds": 313.6501898340066
+    },
+    {
+      "step": 1200,
+      "lr": 0.0006676887710518505,
+      "loss": 3.133887529373169,
+      "seconds": 470.57042075000936
+    },
+    {
+      "step": 1600,
+      "lr": 0.00045008081813991763,
+      "loss": 2.8465914726257324,
+      "seconds": 626.3193184589909
+    },
+    {
+      "step": 2000,
+      "lr": 0.00024206800070853492,
+      "loss": 2.8123106956481934,
+      "seconds": 783.1901708749938
+    },
+    {
+      "step": 2400,
+      "lr": 8.363316884806116e-05,
+      "loss": 2.6328959465026855,
+      "seconds": 939.5513200419955
+    },
+    {
+      "step": 2800,
+      "lr": 5.22961966581581e-06,
+      "loss": 2.692617416381836,
+      "seconds": 1094.8683331249922
+    },
+    {
+      "step": 2930,
+      "lr": 3.052713100637483e-10,
+      "loss": 2.5367467403411865,
+      "seconds": 1145.3682977920107
+    }
+  ],
+  "curve": [],
+  "checkpoint_sha256": "79c155db8869bb3a71a6e434adb4376fbf8ed5126a63078968a972b4c6b8cbf2",
+  "implementation_sha256": "3cc043b10d9517664e07ca2c942c3d3461924c5fb7903251b663201fc06bd688",
+  "torch_version": "2.7.1",
+  "process_seconds": 1157.6490802089975
+}

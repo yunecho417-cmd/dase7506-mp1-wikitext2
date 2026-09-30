@@ -1,0 +1,34 @@
+[
+  {
+    "step": 882,
+    "processed_targets": 7225344,
+    "bpb": 1.846896657965817,
+    "token_ppl": 49.52189035452197,
+    "nll_nats": 1469645.51171875,
+    "validation_targets": 376599
+  },
+  {
+    "step": 1764,
+    "processed_targets": 14450688,
+    "bpb": 1.6826414306938797,
+    "token_ppl": 35.000082844813676,
+    "nll_nats": 1338941.416015625,
+    "validation_targets": 376599
+  },
+  {
+    "step": 2647,
+    "processed_targets": 21684224,
+    "bpb": 1.6357171215218518,
+    "token_ppl": 31.696343930721312,
+    "nll_nats": 1301601.96875,
+    "validation_targets": 376599
+  },
+  {
+    "step": 3529,
+    "processed_targets": 28909568,
+    "bpb": 1.631858310864108,
+    "token_ppl": 31.438958377484884,
+    "nll_nats": 1298531.3671875,
+    "validation_targets": 376599
+  }
+]

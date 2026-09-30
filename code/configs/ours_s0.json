@@ -1,0 +1,13 @@
+{
+  "vocab": 2048,
+  "context": 256,
+  "width": 128,
+  "heads": 4,
+  "depth": 4,
+  "norm": "ln",
+  "ffn": "gelu",
+  "ffn_mult": 4.0,
+  "pos": "learned",
+  "tie": 1,
+  "dropout": 0.0
+}

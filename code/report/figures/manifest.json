@@ -1,0 +1,72 @@
+[
+ {
+  "id": "v01_versions",
+  "png": "v01_versions.png",
+  "cjk": false
+ },
+ {
+  "id": "v02_horizon",
+  "png": "v02_horizon.png",
+  "cjk": false
+ },
+ {
+  "id": "v03_batch",
+  "png": "v03_batch.png",
+  "cjk": false
+ },
+ {
+  "id": "v04_lr",
+  "png": "v04_lr.png",
+  "cjk": false
+ },
+ {
+  "id": "v05_capacity",
+  "png": "v05_capacity.png",
+  "cjk": false
+ },
+ {
+  "id": "v06_temperature",
+  "png": "v06_temperature.png",
+  "cjk": false
+ },
+ {
+  "id": "v07_noise",
+  "png": "v07_noise.png",
+  "cjk": false
+ },
+ {
+  "id": "v08_ablation_regularisation",
+  "png": "v08_ablation_regularisation.png",
+  "cjk": false
+ },
+ {
+  "id": "v09_ablation_capacity",
+  "png": "v09_ablation_capacity.png",
+  "cjk": false
+ },
+ {
+  "id": "v10_ablation_steps",
+  "png": "v10_ablation_steps.png",
+  "cjk": false
+ },
+ {
+  "id": "v11_offset",
+  "png": "v11_offset.png",
+  "cjk": false
+ },
+ {
+  "id": "v12_resources",
+  "png": "v12_resources.png",
+  "cjk": false
+ },
+ {
+  "id": "v13_architecture",
+  "png": "v13_architecture.png",
+  "cjk": false
+ },
+ {
+  "id": "v14_decision_flow",
+  "png": "v14_decision_flow.png",
+  "cjk": false
+ }
+]

@@ -1,0 +1,97 @@
+{
+  "protocol": "7506-mp1-wt2-v2",
+  "run_dir": "runs/recipe_full_student_s17",
+  "args": {
+    "implementation": "model",
+    "config": "configs/baseline.json",
+    "run_dir": "runs/recipe_full_student_s17",
+    "device": "mps",
+    "precision": "bf16",
+    "threads": 4,
+    "seed": 17,
+    "batch_size": 32,
+    "epochs": 8.0,
+    "targets": 9830400,
+    "lr": 0.001,
+    "wd": 0.1,
+    "warmup_frac": 0.03,
+    "baseline_warmup_steps": 100,
+    "min_lr_frac": 0.1,
+    "schedule": "cosine",
+    "sampling": "without-replacement",
+    "beta2": 0.95,
+    "clip": 1.0,
+    "label_smoothing": 0.0,
+    "ema": 0.0,
+    "ema_start_frac": 0.8,
+    "mtp_k": 0,
+    "mtp_weight": 0.15,
+    "evals": 2,
+    "eval_at_targets": "",
+    "log_every": 400
+  },
+  "config": {
+    "vocab": 2048,
+    "width": 128,
+    "heads": 4,
+    "depth": 4,
+    "context": 256
+  },
+  "seed": 17,
+  "steps": 1200,
+  "parameters": 1088256,
+  "asset_mib": 4.1683244705200195,
+  "processed_targets": 9830400,
+  "train_seconds": 77.40456166601507,
+  "validation_seconds": 2.2425489999877755,
+  "validation": {
+    "bpb": 2.0984762445740457,
+    "token_ppl": 84.26712940429098,
+    "nll_nats": 1669836.90234375,
+    "validation_targets": 376599
+  },
+  "used_averaged_weights": false,
+  "averaging_comparison": [],
+  "history": [
+    {
+      "step": 400,
+      "lr": 0.0008007634777569821,
+      "loss": 4.773673057556152,
+      "seconds": 26.627289875003044
+    },
+    {
+      "step": 800,
+      "lr": 0.0003388092914459683,
+      "loss": 4.4233880043029785,
+      "seconds": 50.62849770701723
+    },
+    {
+      "step": 1200,
+      "lr": 0.00010000163898900153,
+      "loss": 4.349309921264648,
+      "seconds": 77.40449287401862
+    }
+  ],
+  "curve": [
+    {
+      "step": 600,
+      "processed_targets": 4915200,
+      "bpb": 2.1904055995132965,
+      "token_ppl": 102.33325746975373,
+      "nll_nats": 1742988.56640625,
+      "validation_targets": 376599
+    },
+    {
+      "step": 1200,
+      "processed_targets": 9830400,
+      "bpb": 2.0984762445740457,
+      "token_ppl": 84.26712940429098,
+      "nll_nats": 1669836.90234375,
+      "validation_targets": 376599
+    }
+  ],
+  "checkpoint_sha256": "edfd829dcb24bd0ad0d595ed199412046e880823640e4eab6b031f11f3001dc5",
+  "implementation_sha256": "6cce142a31d396f017319543f50d70f30fa6da740729af01c8baed13c6f671f9",
+  "torch_version": "2.7.1",
+  "process_seconds": 85.09000237498549
+}

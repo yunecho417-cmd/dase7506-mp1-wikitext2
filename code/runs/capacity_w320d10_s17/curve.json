@@ -1,0 +1,18 @@
+[
+  {
+    "step": 600,
+    "processed_targets": 4915200,
+    "bpb": 2.0921459952719963,
+    "token_ppl": 83.14751462633669,
+    "nll_nats": 1664799.68359375,
+    "validation_targets": 376599
+  },
+  {
+    "step": 1200,
+    "processed_targets": 9830400,
+    "bpb": 1.8727615489876193,
+    "token_ppl": 52.303653533230786,
+    "nll_nats": 1490227.18359375,
+    "validation_targets": 376599
+  }
+]

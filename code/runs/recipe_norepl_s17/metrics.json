@@ -1,0 +1,97 @@
+{
+  "protocol": "7506-mp1-wt2-v2",
+  "run_dir": "runs/recipe_norepl_s17",
+  "args": {
+    "implementation": "model",
+    "config": "configs/baseline.json",
+    "run_dir": "runs/recipe_norepl_s17",
+    "device": "mps",
+    "precision": "bf16",
+    "threads": 4,
+    "seed": 17,
+    "batch_size": 32,
+    "epochs": 8.0,
+    "targets": 9830400,
+    "lr": 0.001,
+    "wd": 0.1,
+    "warmup_frac": 0.03,
+    "baseline_warmup_steps": 100,
+    "min_lr_frac": 0.1,
+    "schedule": "baseline",
+    "sampling": "without-replacement",
+    "beta2": 0.999,
+    "clip": 1.0,
+    "label_smoothing": 0.0,
+    "ema": 0.0,
+    "ema_start_frac": 0.8,
+    "mtp_k": 0,
+    "mtp_weight": 0.15,
+    "evals": 2,
+    "eval_at_targets": "",
+    "log_every": 400
+  },
+  "config": {
+    "vocab": 2048,
+    "width": 128,
+    "heads": 4,
+    "depth": 4,
+    "context": 256
+  },
+  "seed": 17,
+  "steps": 1200,
+  "parameters": 1088256,
+  "asset_mib": 4.1683244705200195,
+  "processed_targets": 9830400,
+  "train_seconds": 75.77491362497676,
+  "validation_seconds": 2.1592913750209846,
+  "validation": {
+    "bpb": 2.0715983392974375,
+    "token_ppl": 79.61479829913998,
+    "nll_nats": 1648449.13671875,
+    "validation_targets": 376599
+  },
+  "used_averaged_weights": false,
+  "averaging_comparison": [],
+  "history": [
+    {
+      "step": 400,
+      "lr": 0.0007760194899145177,
+      "loss": 4.755860328674316,
+      "seconds": 25.499680499982787
+    },
+    {
+      "step": 800,
+      "lr": 0.00032602103203932455,
+      "loss": 4.382031440734863,
+      "seconds": 50.10600408294704
+    },
+    {
+      "step": 1200,
+      "lr": 0.00010000154212480686,
+      "loss": 4.2847418785095215,
+      "seconds": 75.77477037496283
+    }
+  ],
+  "curve": [
+    {
+      "step": 600,
+      "processed_targets": 4915200,
+      "bpb": 2.1836418541373996,
+      "token_ppl": 100.88116184181354,
+      "nll_nats": 1737606.3984375,
+      "validation_targets": 376599
+    },
+    {
+      "step": 1200,
+      "processed_targets": 9830400,
+      "bpb": 2.0715983392974375,
+      "token_ppl": 79.61479829913998,
+      "nll_nats": 1648449.13671875,
+      "validation_targets": 376599
+    }
+  ],
+  "checkpoint_sha256": "870b5bff80d26e1d160d98af295fa6c10f5644d556dec31537dad077d484b613",
+  "implementation_sha256": "6cce142a31d396f017319543f50d70f30fa6da740729af01c8baed13c6f671f9",
+  "torch_version": "2.7.1",
+  "process_seconds": 83.36086116699153
+}

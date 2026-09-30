@@ -1,0 +1,97 @@
+{
+  "protocol": "7506-mp1-wt2-v2",
+  "run_dir": "runs/s0_lr1e3",
+  "args": {
+    "implementation": "student",
+    "config": "configs/ours_s0.json",
+    "run_dir": "runs/s0_lr1e3",
+    "device": "mps",
+    "precision": "bf16",
+    "threads": 4,
+    "seed": 17,
+    "batch_size": 32,
+    "epochs": 8.0,
+    "targets": 9830400,
+    "lr": 0.001,
+    "wd": 0.1,
+    "warmup_frac": 0.03,
+    "min_lr_frac": 0.1,
+    "beta2": 0.95,
+    "clip": 1.0,
+    "label_smoothing": 0.0,
+    "ema": 0.0,
+    "ema_start_frac": 0.8,
+    "mtp_k": 0,
+    "mtp_weight": 0.15,
+    "evals": 2,
+    "log_every": 400
+  },
+  "config": {
+    "vocab": 2048,
+    "context": 256,
+    "width": 128,
+    "heads": 4,
+    "depth": 4,
+    "norm": "ln",
+    "ffn": "gelu",
+    "ffn_mult": 4.0,
+    "pos": "learned",
+    "tie": 1,
+    "dropout": 0.0
+  },
+  "seed": 17,
+  "steps": 1200,
+  "parameters": 1083648,
+  "asset_mib": 4.1469011306762695,
+  "processed_targets": 9830400,
+  "train_seconds": 85.82723912499932,
+  "validation_seconds": 2.618783291996806,
+  "validation": {
+    "bpb": 2.1016946560526337,
+    "token_ppl": 84.84212977003615,
+    "nll_nats": 1672397.9140625,
+    "targets": 376599
+  },
+  "used_averaged_weights": false,
+  "averaging_comparison": [],
+  "history": [
+    {
+      "step": 400,
+      "lr": 0.0008007634777569821,
+      "loss": 4.793817520141602,
+      "seconds": 29.07244137499947
+    },
+    {
+      "step": 800,
+      "lr": 0.0003388092914459683,
+      "loss": 4.432250022888184,
+      "seconds": 57.42127774999972
+    },
+    {
+      "step": 1200,
+      "lr": 0.00010000163898900153,
+      "loss": 4.349262714385986,
+      "seconds": 85.82714970899542
+    }
+  ],
+  "curve": [
+    {
+      "step": 600,
+      "targets": 376599,
+      "bpb": 2.194449193474875,
+      "token_ppl": 103.21133282409443,
+      "nll_nats": 1746206.20703125
+    },
+    {
+      "step": 1200,
+      "targets": 376599,
+      "bpb": 2.1016946560526337,
+      "token_ppl": 84.84212977003615,
+      "nll_nats": 1672397.9140625
+    }
+  ],
+  "checkpoint_sha256": "50a3109a89cf230b1ff197e87b5ea00f34175844e5f631590e7439ce8620ab21",
+  "implementation_sha256": "e11719c1433cf907e4e9098676a9776bb75059b4b6b5a860ab1ecc899086fff8",
+  "torch_version": "2.7.1",
+  "process_seconds": 94.36424550000083
+}
